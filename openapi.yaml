@@ -1,34 +1,495 @@
-openapi: "3.0.0"
+openapi: 3.0.0
 info:
-  description: "API Description"
-  version: "1.0.0"
-  title: "Amtsname: API Name"
-
+  title: Marktdatenstammregister API
+  description: >-
+    Das MaStR führt die Stammdaten zu Strom- und Gaserzeugungsanlagen sowie
+    Marktakteuren wie Anlagenbetreibern, Netzbetreibern und Energielieferanten.
+  version: 1.0.0
 servers:
-  - url: "https://warnung.bund.de/api31"
-
+  - url: 'https://www.marktstammdatenregister.de/MaStR'
+components:
+  schemas:
+    Filter:
+      type: object
+      description: Spezifikation eines Filter-Felds.
+      properties:
+        FilterName:
+          type: string
+          description: Filtername
+        ListObject:
+          type: array
+          description: 'Liste möglicher Optionen, falls nicht leer.'
+          items:
+            type: object
+            properties:
+              Name:
+                type: string
+                description: Name der Option
+              Value:
+                type: string
+                description: Wert der Option (für den gesendeten Filter)
+        Type:
+          type: string
+          description: Filtertyp
+          enum:
+            - text
+            - number
+            - multidropdown
+            - date
+            - boolean
+    Entry:
+      type: object
+      properties:
+        Id:
+          type: number
+          example: 4343525
+        AnlagenbetreiberId:
+          type: number
+          example: 2941069
+        AnlagenbetreiberPersonenArt:
+          type: number
+          example: 518
+        AnlagenbetreiberMaskedName:
+          type: string
+          example: natürliche Person (ABR976889382868)
+        AnlagenbetreiberMaStRNummer:
+          type: string
+          example: ABR976889382868
+        AnlagenbetreiberName:
+          type: string
+          example: natürliche Person (ABR976889382868)
+        BetriebsStatusId:
+          type: integer
+          example: 35
+        BetriebsStatusName:
+          type: string
+          example: In Betrieb
+        Breitengrad:
+          type: number
+          nullable: true
+          example: 48.111425
+        BundeslandId:
+          type: integer
+          example: 1402
+        Bundesland:
+          type: string
+          example: Baden-Württemberg
+        DatumLetzteAktualisierung:
+          type: string
+          example: /Date(1625805053961)/
+        EinheitRegistrierungsdatum:
+          type: string
+          example: /Date(1613433600000)/
+        EinheitName:
+          type: string
+          example: Dachs
+        EndgueltigeStilllegungDatum:
+          type: string
+          nullable: true
+          example: /Date(1613433600000)/
+        Flurstueck:
+          type: string
+          nullable: true
+          example: 'Flur 2, Flurstück 35/1'
+        Gemarkung:
+          type: string
+          example: Riol
+        Gemeinde:
+          type: string
+          example: Longen
+        Gemeindeschluessel:
+          type: string
+          example: '08115021'
+        GeplantesInbetriebsnahmeDatum:
+          type: string
+          nullable: true
+          example: /Date(1625805053961)/
+        Hausnummer:
+          type: string
+          nullable: true
+          example: '1000'
+        InbetriebnahmeDatum:
+          type: string
+          example: /Date(1256860800000)/
+        IsNBPruefungAbgeschlossen:
+          type: number
+          example: 2954
+        Laengengrad:
+          type: number
+          nullable: true
+          example: 8.866412
+        LandId:
+          type: integer
+          example: 84
+        Landkreis:
+          type: string
+          example: Tuttlingen
+        LokationId:
+          type: integer
+          example: 4204611
+        LokationMastrNr:
+          type: string
+          example: SEL979309915950
+        MaStRNummer:
+          type: string
+          example: SEE984406082900
+        NetzbetreiberId:
+          type: string
+          example: '1001492'
+        NetzbetreiberMaskedNamen:
+          type: string
+          example: Netze BW GmbH (SNB948311994307)
+        NetzbetreiberMaStRNummer:
+          type: string
+          example: SNB948311994307
+        NetzbetreiberNamen:
+          type: string
+          example: Netze BW GmbH (SNB948311994307
+        NetzbetreiberPersonenArt:
+          type: string
+          example: '517'
+        Ort:
+          type: string
+          example: Egesheim
+        Plz:
+          type: string
+          example: '78592'
+        Strasse:
+          type: string
+          nullable: true
+          example: Hauptstraße
+        SystemStatusId:
+          type: integer
+          example: 472
+        SystemStatusName:
+          type: string
+          example: Aktiviert
+        Typ:
+          type: integer
+          example: 6
+        AktenzeichenGenehmigung:
+          type: string
+          nullable: true
+          example: 50-Sd/IG-10-2016
+        AnzahlSolarModule:
+          type: integer
+          nullable: true
+          example: 22
+        Batterietechnologie:
+          type: integer
+          nullable: true
+          example: 727
+        Bruttoleistung:
+          type: number
+          example: 5.5
+        EegInbetriebnahmeDatum:
+          type: string
+          nullable: true
+          example: /Date(1505260800000)/
+        EegInstallierteLeistung:
+          type: number
+          nullable: true
+          example: 3.6
+        EegAnlageMastrNummer:
+          type: string
+          nullable: true
+          example: EEG902144564649
+        EegAnlageRegistrierungsdatum:
+          type: string
+          nullable: true
+          example: /Date(1549411200000)/
+        EegAnlagenschluessel:
+          type: string
+          nullable: true
+          example: E10843010000000000000026155800001
+        EegZuschlag:
+          type: string
+          nullable: true
+          example: SOL18-2/011
+        Zuschlagsnummern:
+          type: string
+          example: 'SOL18-2/011, '
+        EnergietraegerId:
+          type: integer
+          example: 2411
+        EnergietraegerName:
+          type: string
+          example: andere Gase
+        GemeinsamerWechselrichter:
+          type: integer
+          nullable: true
+          example: 1450
+        Genehmigungbehoerde:
+          type: string
+          nullable: true
+          example: Landratsamt Traunstein
+        GenehmigungDatum:
+          type: string
+          nullable: true
+          example: /Date(1293062400000)/
+        GenehmigungRegistrierungsdatum:
+          type: string
+          nullable: true
+          example: /Date(1550188800000)/
+        GenehmigungsMastrNummer:
+          type: string
+          nullable: true
+          example: SGE922998552593
+        Gruppierungsobjekte:
+          type: string
+          example: KWK971689808877
+        GruppierungsobjekteIds:
+          type: string
+          example: '85753'
+        HatFlexibilitaetspraemie:
+          type: boolean
+          nullable: true
+          example: true
+        HauptausrichtungSolarModule:
+          type: integer
+          nullable: true
+          example: 697
+        HauptausrichtungSolarModuleBezeichnung:
+          type: string
+          nullable: true
+          example: Ost
+        HauptbrennstoffId:
+          type: integer
+          example: 2478
+        HauptbrennstoffNamen:
+          type: string
+          example: Sonstige hergestellte Gase
+        HauptneigungswinkelSolarmodule:
+          type: integer
+          example: 809
+        HerstellerWindenergieanlage:
+          type: integer
+          nullable: true
+          example: 1573
+        HerstellerWindenergieanlageBezeichnung:
+          type: string
+          nullable: true
+          example: Alpha projekt GmbH
+        IsAnonymisiert:
+          type: boolean
+          example: true
+        IsBuergerenergie:
+          type: boolean
+          nullable: true
+          example: null
+        IsEinheitNotstromaggregat:
+          type: boolean
+          nullable: true
+          example: true
+        KraftwerkName:
+          type: string
+          nullable: true
+          example: Grohnde
+        KraftwerkBlockName:
+          type: string
+          nullable: true
+          example: KWG
+        KwkAnlageElektrischeLeistung:
+          type: number
+          example: 5.5
+        KwkAnlageInbetriebnahmedatum:
+          type: string
+          example: /Date(1256860800000)/
+        KwkAnlageMastrNummer:
+          type: string
+          example: KWK971689808877
+        KwkAnlageRegistrierungsdatum:
+          type: string
+          example: /Date(1613433600000)/
+        KwkZuschlag:
+          type: string
+          nullable: true
+          example: BIO22-1/001
+        LageEinheit:
+          type: integer
+          nullable: true
+          example: 852
+        LageEinheitBezeichnung:
+          type: string
+          nullable: true
+          example: Freifläche
+        Leistungsbegrenzung:
+          type: integer
+          nullable: true
+          example: 803
+        MieterstromAngemeldet:
+          type: boolean
+          nullable: true
+          example: true
+        NabenhoeheWindenergieanlage:
+          type: number
+          nullable: true
+          example: 149.08
+        Nettonennleistung:
+          type: number
+          example: 5.5
+        Pilotwindanlage:
+          type: boolean
+          nullable: true
+          example: false
+        NutzbareSpeicherkapazitaet:
+          type: number
+          nullable: true
+          example: 6.5
+        NutzungsbereichGebSA:
+          type: integer
+          nullable: true
+          example: 713
+        Prototypanlage:
+          type: boolean
+          nullable: true
+        RotordurchmesserWindenergieanlage:
+          type: number
+          nullable: true
+          example: 115.71
+        StandortAnonymisiert:
+          type: string
+          example: 71083 Herrenberg; Deutschland
+        SpannungsebenenNamen:
+          type: string
+          example: Niederspannung (= Hausanschluss/Haushaltsstrom)
+        SpeicherEinheitMastrNummer:
+          type: string
+          nullable: true
+          example: SSE951549344691
+        TechnologieStromerzeugungId:
+          type: number
+          example: 542
+        TechnologieStromerzeugung:
+          type: string
+          nullable: true
+          example: Verbrennungsmotor
+        ThermischeNutzleistung:
+          type: number
+          example: 12.000
+        Typenbezeichnung:
+          type: string
+          nullable: true
+          example: SWT-3.6-120
+        VollTeilEinspeisung:
+          type: number
+          example: 689
+        VollTeilEinspeisungBezeichnung:
+          type: string
+          example: Teileinspeisung
+        WasserkraftErtuechtigung:
+          type: boolean
+          example: false
+        WindClusterOstseeId:
+          type: integer
+          nullable: true
+          example: 1550
+        WindClusterNordseeId:
+          type: integer
+          nullable: true
+          example: 1639
+        WindparkName:
+          type: string
+          nullable: true
+          example: Windpark Kreuzstein
 paths:
-  /dashboard/{AGS}.json:
+  /Einheit/EinheitJson/GetFilterColumnsErweiterteOeffentlicheEinheitStromerzeugung:
     get:
-      summary: Name des Endpoints
+      tags:
+        - Filter
+      summary: Filter für erweiterte Stromerzeugung abfragen
       responses:
         '200':
-            description: OK
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Result'
+          description: Liste möglicher Filter
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Filter'
+  /Einheit/EinheitJson/GetFilterColumnsErweiterteOeffentlicheEinheitStromverbrauch:
+    get:
+      tags:
+        - Filter
+      summary: Filter für erweiterten Stromverbrauch abfragen
+      responses:
+        '200':
+          description: Liste möglicher Filter
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Filter'
+  /Einheit/EinheitJson/GetFilterColumnsErweiterteOeffentlicheEinheitGaserzeugung:
+    get:
+      tags:
+        - Filter
+      summary: Filter für erweiterte Gaserzeugung abfragen
+      responses:
+        '200':
+          description: Liste möglicher Filter
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Filter'
+  /Einheit/EinheitJson/GetFilterColumnsErweiterteOeffentlicheEinheitGasverbrauch:
+    get:
+      tags:
+        - Filter
+      summary: Filter für erweiterten Gasverbrauch abfragen
+      responses:
+        '200':
+          description: Liste möglicher Filter
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Filter'
+  /Einheit/EinheitJson/GetErweiterteOeffentlicheEinheitStromerzeugung:
+    get:
       parameters:
-        - in: path
-          required: true
-          name: AGS
+        - in: query
+          name: sort
+          description: 'Spalte, nach der auf- oder absteigend sortiert werden soll'
           schema:
             type: string
-          description: Amtlicher Gebietsschlüssel - kann z.B. von [hier](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json) bezogen werden. Die Letzten 7 Stellen müssen dabei mit "0000000" ersetzt werden, weil die Daten nur auf [Kreisebene](https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel) bereitgestellt werden. 
-          example: "example-parameter"
-
-          
-components: 
-    schemas:
-      Result:
-        type: string
+            description: 'Feld-Key, dann -, dann "asc" oder "desc"'
+        - in: query
+          name: page
+          description: 'Seite, die geladen werden soll'
+          schema:
+            type: integer
+            minimum: 1
+        - in: query
+          name: pageSize
+          description: Anzahl an Einträgen pro Seite
+          schema:
+            type: integer
+            minimum: 1
+        - in: query
+          name: filter
+          description: 'Syntax: Feld-name~[eq|neq|sw|ct|nct|ew|null|nn]~''Wert''~[and|or]~...'
+          schema:
+            type: string
+      tags:
+        - Daten
+      summary: Erweiterte öffentliche Daten zur Stromerzeugung
+      responses:
+        '200':
+          description: Liste Stromerzeuger
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Entry'
+                  Total:
+                    type: number
+                    description: Insgesamt verfügbare Einträge
