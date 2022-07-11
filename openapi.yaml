@@ -6,7 +6,7 @@ info:
     Marktakteuren wie Anlagenbetreibern, Netzbetreibern und Energielieferanten.
   version: 1.0.0
 servers:
-  - url: 'https://www.marktstammdatenregister.de/MaStR/'
+  - url: 'https://www.marktstammdatenregister.de/MaStR'
 components:
   schemas:
     Filter:
@@ -107,7 +107,7 @@ components:
         Hausnummer:
           type: string
           nullable: true
-          example: 1000
+          example: '1000'
         InbetriebnahmeDatum:
           type: string
           example: /Date(1256860800000)/
@@ -135,7 +135,7 @@ components:
           example: SEE984406082900
         NetzbetreiberId:
           type: string
-          example: 1001492
+          example: '1001492'
         NetzbetreiberMaskedNamen:
           type: string
           example: Netze BW GmbH (SNB948311994307)
@@ -147,7 +147,7 @@ components:
           example: Netze BW GmbH (SNB948311994307
         NetzbetreiberPersonenArt:
           type: string
-          example: 517
+          example: '517'
         Ort:
           type: string
           example: Egesheim
@@ -240,7 +240,7 @@ components:
           example: KWK971689808877
         GruppierungsobjekteIds:
           type: string
-          example: 85753
+          example: '85753'
         HatFlexibilitaetspraemie:
           type: boolean
           nullable: true
@@ -366,7 +366,7 @@ components:
           example: Verbrennungsmotor
         ThermischeNutzleistung:
           type: number
-          example: '12.000,'
+          example: 12.000
         Typenbezeichnung:
           type: string
           nullable: true
