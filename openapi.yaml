@@ -99,7 +99,7 @@ components:
           example: Longen
         Gemeindeschluessel:
           type: string
-          example: 08115021
+          example: '08115021'
         GeplantesInbetriebsnahmeDatum:
           type: string
           nullable: true
