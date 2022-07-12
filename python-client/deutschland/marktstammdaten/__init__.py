@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "&lt;VERSION&gt;"
+__version__ = "0.1.0"
 
 # import ApiClient
 from deutschland.marktstammdaten.api_client import ApiClient

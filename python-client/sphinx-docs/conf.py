@@ -26,10 +26,10 @@ copyright = "2022, BundesAPI"
 author = "BundesAPI"
 
 # The short X.Y version
-version = "&lt;VERSION&gt;"
+version = "0.1.0"
 
 # The full version, including alpha/beta/rc tags
-release = "&lt;VERSION&gt;"
+release = "0.1.0"
 
 
 # -- General configuration ---------------------------------------------------

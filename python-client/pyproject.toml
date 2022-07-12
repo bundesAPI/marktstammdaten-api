@@ -1,7 +1,7 @@
 [tool]
 [tool.poetry]
 name = "de-marktstammdaten"
-version = "&lt;VERSION&gt;"
+version = "0.1.0"
 description = "Marktdatenstammregister API"
 keywords = ["OpenAPI", "OpenAPI-Generator", "marktstammdaten", "App", "API"]
 homepage = "https://github.com/bundesAPI/marktstammdaten-api"
