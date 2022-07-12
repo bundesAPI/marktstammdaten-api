@@ -3,7 +3,7 @@ additionalProperties:
   packageName: "marktstammdaten"
   infoName: "BundesAPI"
   infoEmail: "kontakt@bund.dev"
-  packageVersion: <VERSION>
+  packageVersion: 0.1.0
   packageUrl: "https://github.com/bundesAPI/marktstammdaten-api"
   namespace: "deutschland"
   docLanguage: "de"
