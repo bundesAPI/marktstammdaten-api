@@ -35,7 +35,7 @@ with marktstammdaten.ApiClient() as api_client:
     sort = "sort_example" # str | Spalte, nach der auf- oder absteigend sortiert werden soll (optional)
     page = 1 # int | Seite, die geladen werden soll (optional)
     page_size = 1 # int | Anzahl an Einträgen pro Seite (optional)
-    filter = "filter_example" # str | Syntax: Feld-name~[eq|neq|sw|ct|nct|ew|null|nn]~'Wert'~[and|or]~... (optional)
+    filter = "In%20Betrieb~eq~35" # str | Syntax: Feld-name~[eq|neq|sw|ct|nct|ew|null|nn]~'Wert'~[and|or]~... (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values

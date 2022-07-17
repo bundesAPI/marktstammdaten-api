@@ -66,7 +66,7 @@ with marktstammdaten.ApiClient(configuration) as api_client:
     sort = "sort_example" # str | Spalte, nach der auf- oder absteigend sortiert werden soll (optional)
     page = 1 # int | Seite, die geladen werden soll (optional)
     page_size = 1 # int | Anzahl an Einträgen pro Seite (optional)
-    filter = "filter_example" # str | Syntax: Feld-name~[eq|neq|sw|ct|nct|ew|null|nn]~'Wert'~[and|or]~... (optional)
+    filter = "In%20Betrieb~eq~35" # str | Syntax: Feld-name~[eq|neq|sw|ct|nct|ew|null|nn]~'Wert'~[and|or]~... (optional)
 
     try:
         # Erweiterte öffentliche Daten zur Stromerzeugung
