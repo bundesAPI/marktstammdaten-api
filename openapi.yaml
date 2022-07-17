@@ -473,8 +473,10 @@ paths:
         - in: query
           name: filter
           description: 'Syntax: Feld-name~[eq|neq|sw|ct|nct|ew|null|nn]~''Wert''~[and|or]~...'
+          example: "In%20Betrieb~eq~35"
           schema:
             type: string
+           
       tags:
         - Daten
       summary: Erweiterte öffentliche Daten zur Stromerzeugung
